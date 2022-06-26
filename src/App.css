@@ -1,0 +1,134 @@
+.wrapper {
+  background-color: #007bff;
+	text-align: center;
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.task_container {
+	width: 100%;
+	height: 40px;
+	padding: 5px;
+	margin: 5px 0;
+	border-radius: 5px;
+	border: 1px solid #007bff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.edit_task,
+.remove_task {
+	outline: none;
+	border: none;
+	background: transparent;
+	color: #007bff;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 0 5px;
+}
+
+.task_text {
+	flex-grow: 1;
+	padding: 0 10px;
+}
+
+.line_through {
+	text-decoration: line-through;
+}
+
+.check_box {
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+}
+
+p {
+	margin: 0;
+}
+
+.container {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 80%;
+  }
+}
+
+h2 {
+	color: #fff;
+}
+
+.active_filter {
+	color: #007bff;
+}
+
+span {
+	margin-right: 20px;
+	font-weight: 500;
+}
+
+.controls_container {
+	margin-top: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none !important;
+}
+
+input.form-control:focus,
+input[type="text"]:focus,
+.btn:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.formWrapper {
+	width: 30%;
+	margin: 200px auto;
+}
+
+.error-text {
+	color: brown;
+	font-size: 16px;
+}
+
+.link-wrapper {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 5px;
+}
+
+.profileImage {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	margin-right: 20px;
+}
+
+.user-details {
+	display: flex;
+	justify-content: flex-end;
+}
