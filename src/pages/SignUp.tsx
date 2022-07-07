@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	const handleRegister = () => {
 		if (username === "" && password === "") return;
@@ -17,7 +17,7 @@ const SignUp = () => {
 		localStorage.setItem("users", JSON.stringify(users));
 
 		handleReset();
-		return navigate("/home");
+		// return navigate("/home");
 	};
 
 	const handleReset = () => {
@@ -51,9 +51,9 @@ const SignUp = () => {
 				/>
 			</div>
 
-			<div className="link-wrapper">
+			{/* <div className="link-wrapper">
 				<Link to="/">Already a member?</Link>
-			</div>
+			</div> */}
 
 			<button
 				data-testid="submit"
