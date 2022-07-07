@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 interface Props {
 	handleLogout: () => void;
@@ -29,11 +29,11 @@ const NavBar = ({ handleLogout }: Props) => {
 					className="profileImage"
 				/>
 
-				<div>
+				{/* <div>
 					<Link to="/" onClick={handleLogout} data-testid="logoutButton">
 						Logout
 					</Link>
-				</div>
+				</div> */}
 			</div>
 		</nav>
 	);

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import AddTodo from "../components/AddTodo";
 import Controls from "../components/Controls";
-import NavBar from "../components/NavBar";
 import { Todo } from "../constants/types";
 import TodoItems from "./TodoItems";
 
@@ -29,15 +28,6 @@ const Home = () => {
 		localStorage.setItem("todos", JSON.stringify(todos));
 	}, [todos]);
 
-	const navigate = useNavigate();
-
-	React.useEffect(() => {
-		const isUserLoggedIn = localStorage.getItem("isLogggedIn");
-		if (!isUserLoggedIn) {
-			navigate("/");
-		}
-	}, []);
-
 	const handleSave = () => {
 		if (todo.task === "") return;
 
@@ -48,7 +38,7 @@ const Home = () => {
 			originalTasks[index] = todo;
 
 			setTodos(originalTasks);
-
+			toast.success("Todo editted successfully");
 			setIsEditing(false);
 		} else {
 			setTodos([
@@ -59,6 +49,7 @@ const Home = () => {
 					completed: false
 				}
 			]);
+			toast.success("Todo added successfully");
 		}
 
 		setTodo({ task: "" });
@@ -78,6 +69,7 @@ const Home = () => {
 			return todo.id !== id;
 		});
 		setTodos(removeItem);
+		toast.success("Todo deleted successfully");
 	};
 
 	const handleUpdateStatus = (id: string) => {
@@ -89,15 +81,8 @@ const Home = () => {
 
 	const handleFilterChange = (filter: string) => setFilter(filter);
 
-	const onHandleLogout = () => {
-		localStorage.removeItem("isLogggedIn");
-		navigate("/");
-	};
-
 	return (
 		<>
-			<NavBar handleLogout={onHandleLogout} />
-
 			<div className="wrapper">
 				<h2>ToDoo</h2>
 
@@ -109,6 +94,10 @@ const Home = () => {
 						isEditing={isEditing}
 					/>
 
+					{!!todos.length && (
+						<Controls handleFilterChange={handleFilterChange} filter={filter} />
+					)}
+
 					{!!todos.length ? (
 						<TodoItems
 							todos={todos}
@@ -119,10 +108,6 @@ const Home = () => {
 						/>
 					) : (
 						<p>No Items</p>
-					)}
-
-					{!!todos.length && (
-						<Controls handleFilterChange={handleFilterChange} filter={filter} />
 					)}
 				</div>
 			</div>

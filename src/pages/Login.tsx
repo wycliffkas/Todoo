@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 
 interface User {
 	username: string;
@@ -11,7 +11,7 @@ const Login = () => {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(false);
 
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	const handleLogin = async () => {
 		const users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -22,7 +22,7 @@ const Login = () => {
 		if (!!user.length) {
 			localStorage.setItem("isLogggedIn", JSON.stringify(true));
 			handleReset();
-			return navigate("/home");
+			// return navigate("/home");
 		}
 		setError(true);
 		handleReset();
@@ -65,9 +65,9 @@ const Login = () => {
 				)}
 			</div>
 
-			<div className="link-wrapper">
+			{/* <div className="link-wrapper">
 				<Link to="/register">Not a member?</Link>
-			</div>
+			</div> */}
 
 			<button
 				type="submit"
