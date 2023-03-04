@@ -1,4 +1,7 @@
 # Todoo
+A Todo list application
+
+## Features
 - Create todos
 - Update todos
 - Delete todos
@@ -6,6 +9,7 @@
 - Login users
 
 The hosted version can be accessed here ```https://todoooooo.netlify.app/```
+
 ## Running the application
 - Clone the repo locally. By running:
 ```
